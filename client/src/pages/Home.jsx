@@ -6,7 +6,8 @@ import { BACKEND_API_URL } from "../constant";
 
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
-import ProductCard from "../components/productCard";
+import Card from "../components/Card";
+
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -63,7 +64,7 @@ function Home() {
         <div className="flex flex-wrap justify-center items-center gap-3">
           {products.map((item) => (
             <div key={item.id}>
-              <ProductCard item={item} />
+              <Card item={item} />
             </div>
           ))}
         </div>
