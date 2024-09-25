@@ -1,6 +1,6 @@
 import React from "react";
 
-function Card() {
+function Card({item}) {
   return (
     <div className="w-[20rem] h-[22rem] flex flex-col border border-gray-400 rounded-lg p-4">
       <div className="w-full h-[50%]">
