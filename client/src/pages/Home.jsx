@@ -3,9 +3,10 @@ import axios from "axios";
 import Header from "../components/Header";
 import { FaSearch } from "react-icons/fa";
 import { BACKEND_API_URL } from "../constant";
-import ProductCard from "../components/productCard";
+
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+import ProductCard from "../components/productCard";
 
 function Home() {
   const [products, setProducts] = useState([]);
