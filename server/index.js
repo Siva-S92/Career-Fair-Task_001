@@ -24,6 +24,7 @@ app.use(cors({
 mongoDBConnection();
 
 // routes
+app.get("/", async (req, res) => res.send("express app deployed in vercel"))
 app.use("/api", ProductsRouter)
 
 
