@@ -17,9 +17,11 @@ function Home() {
   const [search, setSearch] = useState("");
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState("");
+  const [isloading, setIsloading] = useState(false)
 
   const fetchAPI = async () => {
     try {
+      setIsloading(true)
       let formData = {
         page,
         search,
@@ -31,9 +33,12 @@ function Home() {
       );
 
       setProducts(response.data.products);
+      setIsloading(false)
       setTotalPages(response.data.totalpages);
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsloading(false)
     }
   };
 
@@ -115,13 +120,21 @@ function Home() {
           The best Products in your country
         </h1>
 
-        <div className="flex flex-wrap justify-center items-center gap-3">
+        {  isloading ? (
+          <div className="w-full h-[200px] grid place-items-center">
+            <div className="loader"></div>
+          </div>
+        ) : (
+          <div className="flex flex-wrap justify-center items-center gap-3">
           {products.map((item) => (
             <div key={item._id}>
               <Card item={item} />
             </div>
           ))}
         </div>
+        )}
+
+        
 
         <div className="flex justify-center my-10">
           <Stack spacing={2}>
