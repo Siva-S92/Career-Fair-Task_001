@@ -63,8 +63,8 @@ function Home() {
       <Header />
       <Hero />
       <section>
-        <div className="flex justify-center md:justify-between items-center">
-          <div>
+        <div className="flex flex-col md:flex-row  justify-center md:justify-between items-center border">
+          <div className="m-2">
             <label htmlFor="category">Category: </label>
             <select
               name="category"
@@ -88,7 +88,7 @@ function Home() {
             </select>
           </div>
 
-          <form className="flex justify-center items-center border border-gray-400 w-fit px-2 rounded-md">
+          <form className="flex justify-center items-center border border-gray-400 w-fit px-2 rounded-md m-2">
             <FaSearch className="text-blue-500" />
             <input
               id="searchkey"
