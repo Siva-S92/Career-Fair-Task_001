@@ -1,8 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Card({item}) {
+  const navigate = useNavigate();
   return (
-    <div className="w-[20rem] h-[22rem] flex flex-col border border-gray-400 rounded-lg p-4">
+    <div className="w-[20rem] h-[22rem] flex flex-col border border-gray-400 rounded-lg p-4" onClick={() => navigate(`/${item._id}`)}>
       <div className="w-full h-[50%]">
         <img
           src={item.thumbnail}

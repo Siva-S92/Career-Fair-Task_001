@@ -1,6 +1,7 @@
 import React from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
+import ProductDetail from './pages/ProductDetail'
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={ <Home /> } />
+          <Route path='/:id' element={ <ProductDetail /> } />
         </Routes>
       </BrowserRouter>
     </>

@@ -88,3 +88,28 @@ export const allCategories = async (req, res) => {
     })
   }
 }
+
+
+
+
+export const fetchSingleProduct = async (req, res) => {
+  try {
+    console.log("siva")
+    const id = req.query.id
+    console.log(id)
+    const product = await productModel.findById(id)
+    if (product){
+      return res.status(200).json({
+        success: true,
+        product,
+      })
+    }
+
+  } catch (error) {
+    console.log(error)
+    return res.status(500).json({
+      success: false,
+      message: error,
+    })
+  }
+}
