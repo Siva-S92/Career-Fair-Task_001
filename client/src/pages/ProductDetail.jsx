@@ -25,12 +25,12 @@ function ProductDetail() {
   if (product) {
     return (
       <section>
-        <div className="flex-col md:flex-row w-full">
-          <div className="w-1/2">
+        <div className="flex flex-col items-center md:flex-row w-full p-5">
+          <div className="w-full flex justify-center md:w-1/2 md:justify-start">
             <img src={product.thumbnail} alt={product.title} />
           </div>
 
-          <div className="w-1/2 content-center">
+          <div className="w-full md:w-1/2 content-center">
             <h1 className="text-3xl font-bold">{product.title}</h1>
             <p>{product.description}</p>
             <p>brand: {product.brand}</p>
