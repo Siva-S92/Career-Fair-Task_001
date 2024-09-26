@@ -25,7 +25,7 @@ function ProductDetail() {
   if (product) {
     return (
       <section>
-        <div className="flex w-full">
+        <div className="flex-col md:flex-row w-full">
           <div className="w-1/2">
             <img src={product.thumbnail} alt={product.title} />
           </div>
