@@ -1,12 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+
 import { BACKEND_API_URL } from "../constant";
 
-function ProductDetail() {
+function ProductDetail({ id }) {
   const [product, setProduct] = useState("");
-  const { id } = useParams();
-  console.log(id)
 
   const fetchProduct = async () => {
     try {
@@ -35,8 +33,13 @@ function ProductDetail() {
             <p>{product.description}</p>
             <p>brand: {product.brand}</p>
             <p>{product.category}</p>
-            <p className="text-xl"> Price: <span className="font-bold">{product.price}$</span></p>
-            <button className="bg-yellow-400 text-black px-4 py-1 rounded-md my-2">ADD&nbsp;TO&nbsp;CART</button>
+            <p className="text-xl">
+              {" "}
+              Price: <span className="font-bold">{product.price}$</span>
+            </p>
+            <button className="bg-yellow-400 text-black px-4 py-1 rounded-md my-2">
+              ADD&nbsp;TO&nbsp;CART
+            </button>
           </div>
         </div>
       </section>

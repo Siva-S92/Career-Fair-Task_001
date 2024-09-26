@@ -1,11 +1,25 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import {Modal} from 'antd'
+import ProductDetail from "../pages/ProductDetail";
 
 function Card({ item }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
+
   return (
     <>
-      <Link to={`/${item._id}`} target="_blank">
-        <div className="w-[20rem] h-[22rem] flex flex-col border border-gray-400 rounded-lg p-4">
+      
+        <div className="w-[20rem] h-[22rem] flex flex-col border border-gray-400 rounded-lg p-4" onClick={showModal}>
           <div className="w-full h-[50%]">
             <img
               src={item.thumbnail}
@@ -23,7 +37,12 @@ function Card({ item }) {
             </p>
           </div>
         </div>
-      </Link>
+      
+
+      <Modal title={item.title} open={isModalOpen} onOk={handleOk} onCancel={handleCancel} width={1000}>
+        <ProductDetail id={item._id}/>
+      </Modal>
+
     </>
   );
 }

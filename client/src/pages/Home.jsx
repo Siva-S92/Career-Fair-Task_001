@@ -17,11 +17,11 @@ function Home() {
   const [search, setSearch] = useState("");
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState("");
-  const [isloading, setIsloading] = useState(false)
+  const [isloading, setIsloading] = useState(false);
 
   const fetchAPI = async () => {
     try {
-      setIsloading(true)
+      setIsloading(true);
       let formData = {
         page,
         search,
@@ -33,12 +33,12 @@ function Home() {
       );
 
       setProducts(response.data.products);
-      setIsloading(false)
+      setIsloading(false);
       setTotalPages(response.data.totalpages);
     } catch (error) {
       console.log(error);
     } finally {
-      setIsloading(false)
+      setIsloading(false);
     }
   };
 
@@ -60,9 +60,6 @@ function Home() {
     fetchCategories();
   }, []);
 
-
-  
-
   return (
     <>
       <Header />
@@ -77,13 +74,12 @@ function Home() {
               className="py-1 outline-none border border-gray-400 px-2 rounded-md"
               onChange={(e) => {
                 setSearch("");
-                setCategory(e.target.value)
-                console.log(e.target.value)
-                
+                setCategory(e.target.value);
+                console.log(e.target.value);
               }}
             >
               <option>-- select an option --</option>
-              
+
               {categories.length > 0 &&
                 categories.map((category, index) => (
                   <option key={index} value={category}>
@@ -103,10 +99,10 @@ function Home() {
               value={search}
               // onClick={() => {
               //   window.location.reload()
-                
+
               // }}
               onChange={(e) => {
-                var selectElement = document.getElementById('category_select');
+                var selectElement = document.getElementById("category_select");
                 selectElement.options[0].selected = true;
                 setCategory("");
                 setSearch(e.target.value);
@@ -120,21 +116,19 @@ function Home() {
           The best Products in your country
         </h1>
 
-        {  isloading ? (
+        {isloading ? (
           <div className="w-full h-[200px] grid place-items-center">
             <div className="loader"></div>
           </div>
         ) : (
           <div className="flex flex-wrap justify-center items-center gap-3">
-          {products.map((item) => (
-            <div key={item._id}>
-              <Card item={item} />
-            </div>
-          ))}
-        </div>
+            {products.map((item) => (
+              <div key={item._id}>
+                <Card item={item} />
+              </div>
+            ))}
+          </div>
         )}
-
-        
 
         <div className="flex justify-center my-10">
           <Stack spacing={2}>
